@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags and title go here as before -->
+
+    <style>
+        /* Add styles for your About Us page here */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* This ensures the video covers the entire container without cropping */
+            z-index: -1;
+            transition: opacity 0.5s; /* Add opacity transition for the video */
+        }
+
+        .content-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Align content to the left */
+            height: 100vh;
+        }
+
+        .content {
+            max-width: 800px; /* Limit the content width */
+            margin: 0 20px; /* Add margin to keep content away from the edges */
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background */
+            border-radius: 10px; /* Add rounded corners to the content box */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+            text-align: left; /* Align content to the left */
+            transition: transform 0.5s, background-color 0.3s; /* Add transitions for hovering and background color change */
+            animation: fadeIn 1s ease-in-out, slideInFromLeft 1s ease-in-out;
+        }
+
+        .content:hover {
+            transform: scale(1.05); /* Scale the content box on hover */
+            background-color: rgba(255, 255, 255, 0.9); /* Change background color on hover */
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #333; /* Heading text color */
+            animation: fadeIn 1s ease-in-out, bounce 2s infinite;
+        }
+
+        p {
+            margin: 10px 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        /* Style for list items */
+        li {
+            line-height: 1.6;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Animation for list items */
+        li {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+                visibility: hidden;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header and navigation bar (you can reuse the same header and navigation from your previous code) -->
+
+    <video autoplay loop muted poster="https://i.pinimg.com/474x/c0/c3/13/c0c3137ef507bd5b8e7b92f19f03ecd6.jpg">
+        <source src="https://i.pinimg.com/474x/2c/fe/6a/2cfe6ac8eff3a9a9b48b56a1d032847b.jpg" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="content-container">
+        <div class="content">
+            <!-- Your "About Us" content goes here -->
+            <h1>About Us</h1>
+            <p>Welcome to our Online Parking System!</p>
+            <p>At [Your Company Name], we are passionate about revolutionizing the parking experience. Our mission is to make parking convenient, efficient, and stress-free for our customers.</p>
+            <p>What sets us apart:</p>
+            <ul>
+                <li>Smart Parking Solutions: We use advanced technology and IoT-based systems to optimize parking space utilization, reducing wait times and congestion.</li>
+                <li>User-Friendly Interface: Our user interface is designed for simplicity and ease of use, making it effortless to find, reserve, and pay for parking spaces.</li>
+                <li>Secure and Reliable: Security is our top priority. We employ state-of-the-art security measures to ensure the safety of your vehicle and personal information.</li>
+                <li>Customer Support: Our dedicated customer support team is available to assist you with any questions or issues, 24/7.</li>
+            </ul>
+            <p>We're committed to providing a seamless and enjoyable parking experience for all our users. Thank you for choosing us for your parking needs!</p>
+        </div>
+    </div>
+</body>
+</html>

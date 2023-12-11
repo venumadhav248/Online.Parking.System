@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.transportadvancement.com/wp-content/uploads/road-traffic/15807/Automated_parking_system.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .navbar {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 20px;
+        }
+        .dashboard-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            text-align: center;
+        }
+        .dashboard-container h2 {
+            text-align: center;
+            color: #333;
+        }
+        .dashboard-options {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .dashboard-options a {
+            text-decoration: none;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        .logout-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .logout-button a {
+            text-decoration: none;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .slot-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .slot-button {
+            width: 100px;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .slot-button:hover {
+            background-color: #555;
+            transform: scale(1.1);
+        }
+        .slot-button.booked {
+            background-color: #FF0000;
+        }
+        .vehicle-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .vehicle-container label {
+            font-weight: bold;
+        }
+        .vehicle-container select {
+            margin-left: 10px;
+        }
+        .showcase {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .showcase li {
+            margin: 0 20px;
+        }
+        .slot {
+            width: 50px;
+            height: 50px;
+            background-color: #ccc;
+            border: 1px solid #333;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .slot.selected {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .slot.occupied {
+            background-color: #FF0000;
+            color: #fff;
+        }
+        .slot:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .row {
+            display: flex;
+            margin: 10px 0;
+        }
+        .row .slot {
+            margin: 0 10px;
+        }
+        .container1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .container1 .butt {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .popup-content {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        .input-box {
+            margin: 10px 0;
+        }
+        .input-box .icon {
+            display: inline-block;
+            width: 20px;
+        }
+        .input-box input {
+            width: 100%;
+        }
+        .text {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        
+     /* New styles for the booking container */
+        .popup-content {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            width: 400px;
+            position: relative;
+            text-align: center;
+            animation: popupFadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes popupFadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .popup-content h3 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .popup-content .input-box {
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .popup-content .input-box .icon {
+            display: inline-block;
+            width: 20px;
+        }
+
+        .popup-content .input-box input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .popup-content .input-box label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            pointer-events: none;
+            color: #777;
+            transition: 0.3s;
+        }
+
+        .popup-content .input-box input:focus + label,
+        .popup-content .input-box input:valid + label {
+            top: -15px;
+            font-size: 12px;
+            color: #333;
+        }
+
+        .popup-content .input-box .icon {
+            position: absolute;
+            top: 18px;
+            right: 10px;
+        }
+
+        .popup-content button.btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .popup-content button.btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="https://vpsdhasinisindhu.000webhostapp.com/carparking6.html">Slots</a>
+    </div>
+    <div class="dashboard-container">
+        <h2>Welcome, [User's Name]</h2>
+        <div class="dashboard-options">
+            <a href="https://vpsdhasinisindhu.000webhostapp.com/carparking8.html">My Booking</a>
+        </div>
+        <br>
+        <div class="logout-button">
+            <a href="https://vpsdhasinisindhu.000webhostapp.com/carparking9.php">Logout</a>
+        </div>
+    </div>
+    <div class="vehicle-container">
+        <label>Pick a vehicle:</label>
+        <select id="vehicle">
+            <option value="10">CAR ($10)</option>
+            <option value="5">BIKE ($5)</option>
+        </select>
+    </div>
+    <ul class="showcase">
+        <li>
+            <div class="slot"></div>
+            <small>N/A</small>
+        </li>
+        <li>
+            <div class="slot selected"></div>
+            <small>Selected</small>
+        </li>
+        <li>
+            <div class="slot occupied"></div>
+            <small>Occupied</small>
+        </li>
+    </ul>
+    <div class="container">
+        <div class="row">
+            <div class="slot">slot 1</div>
+            <div class="slot">slot 2</div>
+            <div class="slot">slot 3</div>
+            <div class="slot">slot 4</div>
+        <div class="slot">slot 5</div>
+        <div classslot="slot 6">6</div>
+        <div class="slot">slot 7</div>
+        <div class="slot">slot 8</div>
+      </div>
+      <div class="row">
+        <div class="slot">slot 9</div>
+        <div class="slot">slot 10</div>
+        <div class="slot">slot 11</div>
+        <div class="slot occupied">slot 12</div>
+        <div class="slot occupied">slot 13</div>
+        <div class="slot">slot 14</div>
+        <div class="slot">slot 15</div>
+        <div class="slot">slot 16</div>
+      </div>
+      <div class="row">
+        <div class="slot">slot 17</div>
+        <div class="slot">slot 18</div>
+        <div class="slot">slot 19</div>
+        <div class="slot">slot 20</div>
+        <div class="slot">slot 21</div>
+        <div class="slot">slot 22</div>
+        <div class="slot occupied">slot 23</div>
+        <div class="slot occupied">slot 24</div>
+      </div>
+
+      <div class="row">
+        <div class="slot">slot 25</div>
+        <div class="slot">slot 26</div>
+        <div class="slot">slot 27</div>
+        <div class="slot">slot 28</div>
+        <div class="slot">slot 29</div>
+        <div class="slot">slot 30</div>
+        <div class="slot">slot 31</div>
+        <div class="slot">slot 32</div>
+      </div>
+
+      <div class="row">
+        <div class="slot">slot 33</div>
+        <div class="slot">slot 34</div>
+        <div class="slot">slot 35</div>
+        <div class="slot occupied">slot 36</div>
+        <div class="slot occupied">slot 37</div>
+        <div class="slot">slot 38</div>
+        <div class="slot">slot 39</div>
+        <div class="slot">slot 40</div>
+      </div>
+
+      <div class="row">
+        <div class="slot">slot 41</div>
+        <div class="slot">slot 42</div>
+        <div class="slot">slot 43</div>
+        <div class="slot">slot 44</div>
+        <div class="slot occupied">slot 45</div>
+        <div class="slot occupied">slot 46</div>
+        <div class="slot occupied">slot 47</div>
+        <div class="slot">slot 48  </div>
+      </div>
+    </div>
+   <div class="popup" id="popup">
+        <div class="popup-content">
+            <h3>Book a Slot</h3>
+            <form action="seat.php">
+                <div class="input-box">
+                    <span class="icon"></span>
+                    <input type="text" id="vehicle_number" name="vehicle_number" required>
+                    <label>Vehicle Number</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon" ></span>
+                    <input type="text" id="vehicle_type" name="vehicle_type" required>
+                    <label>Vehicle Type</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"></span>
+                    <input type="text" id="owner_name" name="owner_name"  required>
+                    <label>Owner Name</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"></span>
+                    <input type="date" id="date" name="date"  required>
+                    <label>Date</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"></span>
+                    <input type="time" id="time" name="time" required>
+                    <label>Time</label>
+                </div>
+                <button type="submit" class="btn">BOOK</button>
+            </form>
+            <button type="button" class="close" aria-label="Close" onclick="closepopup()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Your existing JavaScript code here -->
+
+    <script>
+        let popup = document.getElementById("popup");
+
+        function openpopup() {
+            popup.style.display = "block";
+        }
+
+        function closepopup() {
+            popup.style.display = "none";
+        }
+    </script>
+</body>
+</html>

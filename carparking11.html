@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Parking System</title>
+    
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic styling for the navigation bar */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://b2bblogassets.airtel.in/wp-content/uploads/2022/05/iot-based-smart-parking-2048x1347.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        /* Style for the logo image */
+        header img.logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            transition: transform 0.3s; /* Add a smooth scaling animation */
+        }
+
+        header img.logo:hover {
+            transform: scale(1.1); /* Scale up by 10% on hover */
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff9900;
+            background-color: #333;
+        }
+
+        /* Add animations for content */
+        .content {
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            opacity: 0;
+            animation: fadeIn 1s forwards; /* Add a fade-in animation */
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Style the heading */
+        .content h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Logo image at the top left -->
+    <img src="p1.png" alt="Logo" class="logo">
+    <nav>
+        <ul>
+            <li><a href="https://vpsdhasinisindhu.000webhostapp.com/carparking1.html">Home</a></li>
+            <li><a href="https://vpsdhasinisindhu.000webhostapp.com/carparking3.html">User</a></li>
+            <li><a href="https://vpsdhasinisindhu.000webhostapp.com/carparking2.html">Admin</a></li>
+            <li><a href="https://vpsdhasinisindhu.000webhostapp.com/about_us.html">About us</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <!-- Your content for each page goes here -->
+        <h1>Welcome to the Online Parking System</h1>
+    </div>
+</body>
+</html>

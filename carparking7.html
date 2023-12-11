@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slot Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.realestate.com.au/news-image/w_1200,h_675/v1659970331/news-lifestyle-content-assets/wp-content/production/capi_08dbb35a85b969c113624e409d639b5b_93885f0456781d745a2a00c89ac23e6f.webp?_i=AA');
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .navbar {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 20px;
+        }
+        .booking-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            text-align: center;
+        }
+        .booking-container h2 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="datetime-local"],
+        .form-group input[type="number"],
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+        .book-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .book-button button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .book-button button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="https://vpsdhasinisindhu.000webhostapp.com/carparking1.html">Home</a>
+        <a href="https://vpsdhasinisindhu.000webhostapp.com/carparking3.html">User</a>
+        <a href="https://vpsdhasinisindhu.000webhostapp.com/carparking2.html">Admin</a>
+        <a href="https://vpsdhasinisindhu.000webhostapp.com/carparking5.html">User Dashboard</a>
+    </div>
+    <div class="booking-container">
+        <h2>Slot Booking</h2>
+        <form action="booking.php" method="post">
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="datetime-local" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="booking-time">Booking Time:</label>
+                <input type="datetime-local" name="booking_time" id="booking_time" required>
+            </div>
+            <div class="form-group">
+                <label for="hours">Number of Hours:</label>
+                <input type="number" id="hours" name="hours" required>
+            </div>
+            <div class="form-group">
+                <label for="vehicle">Type of Vehicle:</label>
+                <select id="vehicle" name="vehicle" required>
+                    <option value="car">Car</option>
+                    <option value="motorcycle">Motorcycle</option>
+                    <option value="bike">Bike</option>
+                </select>
+            </div>
+            <input type="hidden" id="slot_id_1" name="slot_id" value="1"> 
+            <input type="hidden" id="slot_id_2" name="slot_id" value="2">
+            <input type="hidden" id="slot_id_3" name="slot_id" value="3">
+            <input type="hidden" id="slot_id_4" name="slot_id" value="4"> 
+            <input type="hidden" id="slot_id_5" name="slot_id" value="5"> 
+            <input type="hidden" id="slot_id_6" name="slot_id" value="6"> 
+            <input type="hidden" id="slot_id_7" name="slot_id" value="7"> 
+            <input type="hidden" id="slot_id_8" name="slot_id" value="8"> 
+            <input type="hidden" id="slot_id_9" name="slot_id" value="9"> 
+            <input type="hidden" id="slot_id_10" name="slot_id" value="10"> 
+            <input type="hidden" id="slot_id_11" name="slot_id" value="11"> 
+            <input type="hidden" id="slot_id_12" name="slot_id" value="12">
+            <input type="hidden" id="slot_id_13" name="slot_id" value="13"> 
+            <input type="hidden" id="slot_id_14" name="slot_id" value="14"> 
+            <input type="hidden" id="slot_id_15" name="slot_id" value="15"> 
+            <input type="hidden" id="slot_id_16" name="slot_id" value="16">
+            <input type="hidden" id="slot_id_17" name="slot_id" value="17"> 
+            <input type="hidden" id="slot_id_18" name="slot_id" value="18"> 
+            <input type="hidden" id="slot_id_19" name="slot_id" value="19"> 
+            <input type="hidden" id="slot_id_20" name="slot_id" value="20">
+            <input type="hidden" id="slot_id_21" name="slot_id" value="21"> 
+            <input type="hidden" id="slot_id_22" name="slot_id" value="22"> 
+            <input type="hidden" id="slot_id_23" name="slot_id" value="23"> 
+            <input type="hidden" id="slot_id_24" name="slot_id" value="24"> 
+            <input type="hidden" id="slot_id_25" name="slot_id" value="25"> 
+            <input type="hidden" id="slot_id_26" name="slot_id" value="26"> 
+            <input type="hidden" id="slot_id_27" name="slot_id" value="27"> 
+            <input type="hidden" id="slot_id_28" name="slot_id" value="28"> 
+            <input type="hidden" id="slot_id_29" name="slot_id" value="29"> 
+            <input type="hidden" id="slot_id_30" name="slot_id" value="30">
+            <div class="book-button">
+                <button type="submit" onclick="showAlert()">Book</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        function showAlert() {
+            alert("Slot booked successfully!");
+        }
+    </script>
+</body>
+</html>

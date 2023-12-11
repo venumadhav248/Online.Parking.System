@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+   
+    <style>
+        .home{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            min-height: 100vh;
+            align-items: center;
+            background: url(images/background.png) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .home .content{
+            flex:1 1 40rem;
+        }
+        .home .image{
+            flex:1 1 40rem;
+        }
+        .home .image img{
+            width: 100%;
+            padding: 1rem;
+            animation: float 3s linear infinite;
+        }
+        @keyframes float{
+            0%, 100%{
+                transform: translateY(0rem);
+            }
+            50%{
+                transform: translateY(3rem);
+            }
+        }
+        .home .content h3{
+            font-size: 5rem;
+            color: #333;
+        }
+        .home .content p{
+            font-size: 1.7rem;
+            color: #666;
+            padding: 1rem 0;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 800px; /* Set your preferred width */
+            margin: 0 auto; /* Center the slideshow on the page */
+        }
+        .mySlides {
+            display: none; /* Hide all images by default */
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins sans-serif';
+            box-sizing: border-box;
+        }
+        .hero{
+            width: 100%;
+            min-height: 100vh;
+            background: #f6eaff;
+            color: #f6eaff;
+        }
+        header {
+            text-align: center;
+            padding: 60px;
+            position: relative; /* Add position relative to the header */
+        }
+        nav {
+            background: #1a1a1a;
+            width: 100%;
+            padding: 10px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space between;
+            position: relative;
+        }
+        .loggo{
+            width: 120px;
+        }
+        .user-pic{
+            width: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-left: 30px;
+        }
+        nav ul{
+            width: 100%;
+            text-align: right;
+        }
+        nav ul li{
+            display: inline-block;
+            list-style: none;
+            margin: 10px 20px;
+        }
+        nav ul li a{
+            color: #f6eaff;
+            text-decoration: none;
+        }
+        .sub-menu-wrap{
+            position: absolute;
+            top: 100%;
+            right: 10%;
+            width: 320px;
+            max-height: 0px;
+            overflow:hidden;
+            transition:max-height 0.5s;
+        }
+        .sub-menu-wrap.open-menu{
+            max-height: 400px;
+        }
+        .sub-menu{
+            background: #fff;
+            padding: 20px;
+            margin: 10px;
+        }
+        .user-info{
+            display: flex;
+            align-items: center;
+        }
+        .user-info h3{
+            font-weight: 500;
+        }
+        .user-info img{
+            width: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .sub-menu hr{
+            border: 0;
+            height: 1px;
+            width: 100%;
+            background: #ccc;
+            margin: 15px 0 10px;
+        }
+        .sub-menu-link{
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #525252;
+            margin: 12px 0;
+        }
+        .sub-menu-link p{
+            width: 100%;
+        }
+        .sub-menu-link img{
+            width: 40px;
+            background: #e5e5e5;
+            border-radius: 50%;
+            padding: 8px;
+            margin-right: 15px;
+        }
+        .sub-menu-link span{
+            font-size: 22px;
+            transition: transform 0.5;
+        }
+        .sub-menu-link:hover span{
+            transform:translateX(5px);
+        }
+        .sub-menu-link:hover p{
+            font-weight: 600;
+        }
+        .logo {
+            position: absolute; /* Position the logo absolutely within the header */
+            top: 10px; /* Adjust top position as needed */
+            left: 10px; /* Adjust left position as needed */
+            width: 180px; /* Adjust the width as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <nav>
+            <img src="loggo.jpg" class="loggo">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <img src="images 3/user.png" class="user-pic" onclick="toggleMenu()">
+            <div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu"></div>
+                <div class="user-info">
+                    <img src="images 3/profile.png">
+                    <h2>Likitha</h2>
+                    <hr>
+                    <a href="#" class="sub-menu-link">
+                        <img src="images 3/profile.png">
+                        <p>Edit Profile</p>
+                        <span>><span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <img src="images 3/setting.png">
+                        <p>Complaints</p>
+                        <span>><span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <img src="images 3/logout.png">
+                        <p>Logout</p>
+                        <span>><span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="slideshow-container">
+        <img class="mySlides" src="https://www.easyhaul.com/blog/wp-content/uploads/2021/07/Blog-EasyHaul-Modes-of-Transport-Title-1.png">
+        <img class="mySlides" src="https://img.etimg.com/thumb/msid-99316078,width-300,height-225,imgsize-90150,,resizemode-75/mumbai-local-train-sanjay-hadkar.jpg">
+        <img class="mySlides" src="https://media.licdn.com/dms/image/C5112AQGziM11W83GPg/article-cover_image-shrink_423_752/0/1520056948444?e=1704326400&v=beta&t=Hi2TfwzIO_0_dSAJY-yfe4iTghl26HJVzif_DT6FVtU">
+    </div>
+    
+    <section class="home" id="home">
+        <div class="content">
+            <h3>Complaint</h3>
+            <p>
+                Your most unhappy customers are your greatest source of learning
+                Quality is remembered long after price is forgotten.
+            </p>
+            <a href="#" class="btn">complain now</a>
+        </div>
+        <div class="image">
+            <img src="https://media.istockphoto.com/id/980554662/vector/complaint-concept-woman-wrote-a-complaint.jpg?s=612x612&w=is&k=20&c=J77qgU1rGdT7UrWfXuLZSUpjjq7APj22GDHGiLh-4c0=" alt="">
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        let subMenu = document.getElementById("subMenu");
+        function toggleMenu(){
+            subMenu.classList.toggle("open-menu");
+        }
+    </script>
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slideIndex++;
+
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+
+            setTimeout(showSlides, 3000);
+        }
+    </script>
+</body>
+</html>
